@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        스마트 삭제
+    {% endblock %}
+</head>
+
+<body>
+
+{% block content %}
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+        <form method="post">
+            {% csrf_token %}
+            <div align="center">
+                <p style=" font-weight:bold; font-size: 18px">정말로 "{{ object }}" 를 삭제할까요?</p>
+                <input type="submit" value="&nbsp;&nbsp;&nbsp;예&nbsp;&nbsp;&nbsp;" class="btn btn-danger" >
+                <span>
+                    <a href="{% url 'indexview' %}" ><input type="submit" value="아니요" class="btn btn-primary" ></a>
+                </span>
+            </div>
+        </form>
+       
+{% endblock %}
+
+ </body>

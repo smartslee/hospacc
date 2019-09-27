@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  {% block title %}
+        스마트일계표
+    {% endblock %}
+    
+ 
+
+{% block content %}
+
+<br/>
+<span style =" border:1px gray solid;">  입력을 시작해 주세요..  </span>
+
+<span >궁금하면 원장님에게 문의해 주세요</span>
+<br/>
+<br/>
+<br/>
+    
+   <div>
+        <form class="form-row", method="POST", action = "{% url 'inputdbn' %}" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            
+          
+           <div class="form-row">
+                <div class="col-md-2 mb-3"> 
+            
+                    <table class="table"  style = "width: 1000px; margin-left:50px">
+                        <thead>
+                            <tr class="container">
+                                <th> 금일 내원환자</th>
+                                <th> 금일 수입현황</th>
+                                <th> 금일 지출현황</th>
+                                <th> 건의사항 및 전달사항</th>
+                            </tr>
+                            
+                        </thead>
+                        
+                         <tr>
+                         
+                            <td>
+                                <label for ="" style="font-family:arial; font-weight:bold">작 성 일 <br/>('20190101'양식으로 입력)</label>
+                                    <br/>{{form.ntext}}
+                                    
+                                <label for ="" style="font-family:arial; font-weight:bold">작   성   자</label>
+                                    <br/>{{form.name_m}}
+                                    
+                                <label for ="" style="font-family:arial; font-weight:bold">내  원   환  자  수</label>
+                                    <br/>{{form.todayptno}}
+                                    
+                                <label for ="" style="font-family:arial; font-weight:bold">공 단   검 진  </label>
+                                    <br/>{{form.gongdan}} 
+                                <label for ="" style="font-family:arial; font-weight:bold">종 합   검 진  </label>
+                                     <br/>{{form.jongham}}
+                                <label for ="" style="font-family:arial; font-weight:bold">예 방   접 종  </label>
+                                     <br/>{{form.vaccine}}
+                                
+                            </td>        
+                        
+                            <td>   
+                                <label for ="" style="font-family:arial; font-weight:bold"> 현 금  수 입</label>
+                                   <br/> {{form.cashincome}}
+                                    
+                                <label for ="" style="font-family:arial; font-weight:bold">카 드   수 입</label>
+                                   <br/> {{form.creditincome}} <br/>
+                                     
+                                <label for ="" style="font-family:arial; font-weight:bold">미    수</label>
+                                   <br/> {{form.misu}}  
+                                     
+                                <label for ="" style="font-family:arial; font-weight:bold">금 일   매 출 계</label>
+                                    <br/>{{form.totalincome}} 
+                                    
+                                 <label for ="" style="font-family:arial; font-weight:bold">금일 현금 지출</label>
+                                   <br/> {{form.jichulcash}}
+                                    
+                                <label for ="" style="font-family:arial; font-weight:bold">금일 현금 잔액</label>
+                                   <br/> {{form.cashremain}}
+                                    
+                                <label for ="" style="font-family:arial; font-weight:bold">현 금 시 제</label>
+                                    <br/>{{form.cashsije}} 
+                            </td> 
+                            <td>
+                                <label for ="" style="font-family:arial; font-weight:bold">지 급 구 분</label>
+                                    {{form.jichulclass}}
+                                    </p>
+                                <label for ="" style="font-family:arial; font-weight:bold">지 출 내  용</label>
+                                    <br/>{{form.jichulcontents}} 
+                                    </p>
+                                <label for ="" style="font-family:arial; font-weight:bold">지 출 금  액</label>
+                                    <br/>{{form.jichulmoney}}
+                                    </p>
+                                <label for ="" style="font-family:arial; font-weight:bold">비  고</label>
+                                    <br/>{{form.bigo}}
+                                    </p>
+                                <label for ="" style="font-family:arial; font-weight:bold">지 출 계</label>
+                                   <br/>{{form.jichulsum}}    
+                            </td>
+                            <td>
+                                <label for ="" style="font-family:arial; font-weight:bold">건    의</label>
+                                    <br/>{{form.guneu}}
+                                    </p>
+                                <label for ="" style="font-family:arial; font-weight:bold">직 원 근 태</label>
+                                    <br/>{{form.dutyonoff}}
+                                    
+                                <br/>
+                                <br/><br/><br/><br/><br/><br/><br/><br/>
+                                <br/>
+                                <label for ="" style="font-family:arial; font-weight:bold; color:blue">수정일</label>
+                                    {{form.created_date}}
+                                
+                            </td>
+                        </tr> 
+                    </table>
+                    
+                    <button type="submit" class="save btn btn-primary" style =" margin-left:1000px">저장</button>
+                </div>
+             </div>   
+             
+        
+        
+        </form>
+   </div>
+   
+   {% endblock %}

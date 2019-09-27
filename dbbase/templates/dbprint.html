@@ -1,0 +1,483 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% load humanize %}
+
+
+
+<!DOCTYPE html5>
+<html>
+<head>
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+{% block content %}
+
+<style type="text/css">
+
+@import "compass/css3";
+
+@import url(https://fonts.googleapis.com/css?family=Dosis:300|Lato:300,400,600,700|Roboto+Condensed:300,700|Open+Sans+Condensed:300,600|Open+Sans:400,300,600,700|Maven+Pro:400,700);
+
+@import url('https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');
+
+
+* {
+  @include box-sizing(border-box);
+}
+
+html {
+  background: white;
+}
+
+body {
+  font-family: "Open Sans";
+  font-size: 16px;
+  color: textColor;  
+  font-smoothing: antialiased;
+  font-weight: 600;
+}
+
+a {
+  color: greyColor;
+}
+
+.content:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0; bottom: 0;
+  z-index: -1;
+
+  display: block;
+  background-color: black;
+  background-image: url('http://ultraimg.com/images/Ho6hQWs.jpg');
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+}
+
+.content {
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  width: 540px;
+  height: 540px;
+
+  background-color: rgba(10, 10, 10, 0.5);
+  margin: auto auto;  
+  padding: 40px;
+}
+  
+  
+.title {
+    
+    text-align: center;
+    font-size: 2.0rem;
+    font-weight: 600;
+    
+    padding-bottom: 30px;
+    
+  } 
+  
+  input {
+    width: 100%;
+    font-size: 1.2rem;
+    font-family: "Open Sans";
+    
+    margin: 10px 0px;
+    
+    border: none;
+    padding: 10px;
+    
+  
+  
+  }
+  
+  input[type=checkbox] {
+    display: none;
+  }
+  
+  label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+
+    cursor: pointer;
+    position: relative;
+
+    margin-left: 5px;
+    margin-right: 10px;
+    top: 5px;
+
+    &:before {
+      content: "";
+      display: inline-block;
+
+      width: 20px;
+      height: 20px;
+      
+      @include border-radius(3px);
+
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+      background-color: #aaa;
+      @include box-shadow(inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8));        
+    }
+  } // label
+  
+  input[type=checkbox]:checked + label:before {
+    content: "\2713";
+    @include text-shadow(1px 1px 1px rgba(0, 0, 0, .2));
+    font-size: 20px;
+    color: Black;
+    text-align: center;
+      line-height: 20px;
+  }  
+  
+  span {
+    font-size: 0.9rem;
+  }
+  
+  button {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 10px;
+    margin: 20px 0px;
+    
+    background-color: #66A756;
+    color: $textColor;
+    border: none;
+    
+    @include border-radius(4px);
+  }
+  
+  .social {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    
+    span {
+      display: inline-block;
+      vertical-align: baseline;
+      padding: 0 20px;
+      
+      &:before, &:after {
+        content: '';
+        display: block;
+        width: 500px;
+        position: absolute;
+        top: 0.9em;
+        border-top: 1px solid $textColor;
+      }
+      
+      &:before {
+        right: 75%;
+      }
+      
+      &:after {
+        left: 75%;
+      }
+    }
+  }
+  
+  .buttons {
+    width: 100%;
+    margin: 30px 0px;
+    
+    button {
+      float: left;
+      width: 30%;
+      margin: 0px 1.5%;
+      
+      i {
+        padding-right: 7px;
+      }
+      
+      &.facebook {
+        background-color: #4464B2;
+      }
+      
+      &.twitter {
+        background-color: #28A9E0;
+      }
+
+      &.google {
+        background-color: #DA4735;
+      }
+      
+    } // button
+    
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    
+  } // .buttons
+
+      .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;border: 1px solid #444444;}
+      .tg td{font-family:Arial, sans-serif;font-size:16px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+      .tg th{font-family:Arial, sans-serif;font-size:16px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+      
+      .tg .tg-7jw8{background-color:#ffffff;font-weight:bold;font-size:16px;color:#000000;border-color:#000000;text-align:right;vertical-align:top}
+      .tg .tg-oe15{background-color:#ffffff;border-color:#ffffff;text-align:left;vertical-align:top}
+      .tg .tg-ntt9{background-color:#ffffff;color:#ffffff;border-color:#ffffff;text-align:left;vertical-align:top}
+      .tg .tg-kaak{line-height: 30px; background-color:#ffffff;border-color:#ffffff;text-align:left;vertical-align:top}
+      .tg .tg-kaak2{background-color:#ffffff; border-bottom-color:#444444;text-align:left;vertical-align:top}
+      .tg .tg-lwxs{background-color:#ffffff;color:#ffffff;border-color:#ffffff;text-align:left;vertical-align:top}
+      .tg .tg-bvjv{background-color:#000000;font-weight:bold;font-size:16px;color:#ffffff;border-color:#ffccc9;text-align:center;vertical-align:top}
+      .tg .tg-nu5p{background-color:#ffffff;color:#000000;border-color:#ffffff;text-align:left;vertical-align:top}
+      .tg .tg-47fj{background-color:#000000;font-weight:bold;font-size:16px;color:#ffffff;border-color:#000000;text-align:left;vertical-align:top}
+      .tg .tg-nqsu{font-weight:bold;font-size:16px;background-color:#E9F9F8;color:#000000;border-color:#000000;text-align:left;vertical-align:top}
+      .tg .tg-lxa8{background-color:#ffffff;color:#000000;border-color:#ffffff;text-align:left;vertical-align:top}
+      .tg .tg-luoa{font-weight:bold;font-size:16px;background-color:#000000;color:#ffffff;border-color:#ffccc9;text-align:center;vertical-align:top}
+      .tg .tg-dh2z{font-weight:bold;font-size:16px;background-color:#ffffff;color:#000000;border-color:#000000;text-align:right;vertical-align:top}
+      .tg .tg-k48h{background-color:#d3d3d3;font-weight:bold;font-size:16px;color:#000000;border-color:#000000;text-align:center;vertical-align:top}
+      .tg .tg-riqm{font-weight:bold;font-size:16px;background-color:#ffffff;color:#000000;border-color:#000000;text-align:center;vertical-align:top}
+      .tg .tg-zn4z{background-color:#ffffff;font-weight:bold;font-size:16px;color:#000000;border-color:#000000;text-align:left;vertical-align:top}
+      .tg .tg-31ao{font-weight:bold;font-size:16px;background-color:#ffffff;color:#000000;border-color:#000000;text-align:left;vertical-align:top}
+  
+    
+      
+      
+      
+      </style>
+</head>
+<body>
+    
+  
+  <div class="page">
+  
+    <div class="subpage">
+      <br/>
+        <H1 align = "center"><u><b>스마트내과 일계표 </b></u></H1>
+    
+      <br/>
+      
+      
+      <table class="tg" style="undefined;table-layout: fixed; width: 90% ;margin:0 auto;">
+      <colgroup>
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+      </colgroup>
+        <tr>
+          <th class="tg-nqsu" colspan="4">1. 금일 내원환자</th>
+          <th class="tg-nu5p"></th>
+          <th class="tg-luoa">일계일자</th>
+          <th class="tg-dh2z">{{object.ntext}}</th>
+        </tr>
+        <tr>
+          <td class="tg-k48h">내원환자</td>
+          <td class="tg-k48h">공단검진</td>
+          <td class="tg-k48h">종함검진</td>
+          <td class="tg-k48h">예방접종</td>
+          <td class="tg-kaak"></td>
+          <td class="tg-bvjv">작성자</td>
+          <td class="tg-7jw8">{{object.name_m}}</td>
+        </tr>
+        <tr>
+          <td class="tg-dh2z">{{object.todayptno}}</td>
+          <td class="tg-dh2z">{{object.gongdan}}</td>
+          <td class="tg-dh2z">{{object.jongham}}</td>
+          <td class="tg-dh2z">{{object.vaccine}}</td>
+          <td class="tg-oe15"></td>
+          <td class="tg-oe15"></td>
+          <td class="tg-oe15"></td>
+        </tr>
+        
+        </ble>
+        
+         <table class="tg" style="undefined;table-layout: fixed; width: 90% ;margin:0 auto;">
+      <colgroup>
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+      </colgroup>
+        <br>
+        
+       
+        <tr >
+          <td class="tg-nqsu" style = ""colspan="7">2. 금일 수입현황</td>
+        </tr>
+        <tr>
+          <td class="tg-k48h">현금수입</td>
+          <td class="tg-k48h">카드수입</td>
+          <td class="tg-k48h">미수금</td>
+          <td class="tg-k48h">매출계</td>
+          <td class="tg-k48h">현금지출</td>
+          <td class="tg-k48h">현금잔액</td>
+          <td class="tg-k48h">현금시제</td>
+        </tr>
+        <tr>
+          <td class="tg-dh2z">{{object.cashincome|intcomma }}</td>
+          <td class="tg-dh2z">{{object.creditincome|intcomma }}</td>
+          <td class="tg-dh2z">{{object.misu|intcomma }}</td>
+          <td class="tg-dh2z">{{object.sumincome|intcomma }}</td>
+          <td class="tg-dh2z">{{object.sum_jichul|default_if_none:"0"|intcomma }}</td>
+          <td class="tg-dh2z">{{object.sumdue|default_if_none:""|intcomma }}</td>
+          <td class="tg-dh2z">{{object.cashsije|intcomma }}</td>
+        </tr>
+        
+        </table>
+        <br>
+        
+      <table class="tg" style="undefined;table-layout: fixed; width: 90% ;margin:0 auto;">
+      <colgroup>
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+      </colgroup>
+        
+        <tr>
+          <td class="tg-nqsu" colspan="5" style = "">3. 금일 지출현황</td>
+          <td class="tg-nqsu" >지 출 계  :</td>
+          <td class="tg-nqsu" >{{object.sum_jichul|default_if_none:"0"|intcomma }}</td>
+        </tr>
+        <tr>
+          <td class="tg-k48h" colspan="2">지급구분</td>
+          <td class="tg-k48h" colspan="2">지출내용</td>
+          <td class="tg-k48h">금액</td>
+          <td class="tg-k48h" colspan="2">비고</td>
+        </tr>
+        <tr>
+          <td class="tg-riqm" colspan="2">{{object.jichulclass|default_if_none:""}}</td>
+          <td class="tg-riqm" colspan="2">{{object.jichulcontents|default_if_none:""}}</td>
+          <td class="tg-riqm">{{object.jichulmoney|default_if_none:""|intcomma }}</td>
+          <td class="tg-riqm" colspan="2">{{object.bigo|default_if_none:""}}</td>
+        </tr>
+        <tr>
+          <td class="tg-riqm" colspan="2">{{object.jichulclass2|default_if_none:""}}</td>
+          <td class="tg-riqm" colspan="2">{{object.jichulcontents2|default_if_none:""}}</td>
+          <td class="tg-riqm">{{object.jichulmoney2|default_if_none:""|intcomma }}</td>
+          <td class="tg-riqm" colspan="2">{{object.bigo2|default_if_none:""}}</td>
+        </tr>
+        <tr>
+          <td class="tg-riqm" colspan="2">{{object.jichulclass3|default_if_none:""}}</td>
+          <td class="tg-riqm" colspan="2">{{object.jichulcontents3|default_if_none:""}}</td>
+          <td class="tg-riqm">{{object.jichulmoney3|default_if_none:""|intcomma }}</td>
+          <td class="tg-riqm" colspan="2">{{object.bigo3|default_if_none:""}}</td>
+        </tr>
+        <tr>
+          <td class="tg-riqm" colspan="2">{{object.jichulclass4|default_if_none:""}}</td>
+          <td class="tg-riqm" colspan="2">{{object.jichulcontents4|default_if_none:""}}</td>
+          <td class="tg-riqm">{{object.jichulmoney4|default_if_none:""|intcomma }}</td>
+          <td class="tg-riqm" colspan="2">{{object.bigo4|default_if_none:""}}</td>
+        </tr>
+        <tr>
+          <td class="tg-riqm" colspan="2">{{object.jichulclass5|default_if_none:""}}</td>
+          <td class="tg-riqm" colspan="2">{{object.jichulcontents5|default_if_none:""}}</td>
+          <td class="tg-riqm">{{object.jichulmoney5|default_if_none:""|intcomma }}</td>
+          <td class="tg-riqm" colspan="2">{{object.bigo5|default_if_none:""}}</td>
+        </tr>
+        <tr>
+          <td class="tg-lwxs" colspan="7"></td>
+        </tr>
+       </table> 
+      <table class="tg" style="undefined;table-layout: fixed; width: 90% ;margin:0 auto;">
+      <colgroup>
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+      </colgroup>   
+        
+        <tr>
+          <td class="tg-nqsu" colspan="7" style = "">4. 건의 및 전달 사항</td>
+        </tr>
+        <tr>
+          <td class="tg-zn4z" colspan="7">{{object.guneu|default_if_none:""}}</td>
+        </tr>
+        <tr>
+          <td class="tg-31ao" colspan="7" >{{object.guneu2|default_if_none:""}}</td>
+        </tr>
+        <tr>
+          <td class="tg-zn4z" colspan="7">{{object.guneu3|default_if_none:""}}</td>
+        </tr>
+        <tr>
+          <td class="tg-31ao" colspan="7" >{{object.guneu4|default_if_none:""}}</td>
+        </tr>
+        <tr>
+          <td class="tg-zn4z" colspan="7">{{object.guneu5|default_if_none:""}}</td>
+        </tr>
+       </table>
+       <br>
+       
+        <table class="tg" style="undefined;table-layout: fixed; width: 90% ;margin:0 auto;">
+      <colgroup>
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+      </colgroup>
+        <tr>
+          <td class="tg-nqsu" colspan="7" style = "">5. 직원 근태 사항</td>
+        </tr>
+        <tr>
+          <td class="tg-31ao" colspan="7">{{object.dutyonoff|default_if_none:""}}</td>
+        </tr>
+        <tr>
+          <td class="tg-31ao" colspan="7">{{object.dutyonoff2|default_if_none:""}}</td>
+        </tr>
+        <tr>
+          <td class="tg-31ao" colspan="7">{{object.dutyonoff3|default_if_none:""}}</td>
+        </tr>
+         <tr>
+          <td class="tg-31ao" colspan="7">{{object.dutyonoff4|default_if_none:""}}</td>
+        </tr>
+        <tr>
+          <td class="tg-31ao" colspan="7">{{object.dutyonoff5|default_if_none:""}}</td>
+        </tr>
+      </table>
+      <br>
+      <br>
+      
+      <div> </div>
+      
+      
+      <div align='center' >
+              <img src="{% static "images/스마트스티커.png" %}"   width=3% height=3% positon="fixed">
+              <lable style= "font-size:14px; font-weight:bold;">&nbsp;&nbsp;스마트내과</lable>
+          </div>
+ 
+    </div>
+        
+      
+      
+ </div>
+{% endblock %}
+</body>
+
+
+</html>

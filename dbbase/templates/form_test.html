@@ -1,0 +1,348 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+{% block content %}
+
+<style type="text/css">
+      .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+      .tg td{font-family:Arial, sans-serif;font-size:16px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+      .tg th{font-family:Arial, sans-serif;font-size:16px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+      .tg .tg-7jw8{background-color:#ffffff;font-weight:bold;font-size:16px;color:#000000;border-color:#000000;text-align:right;vertical-align:top}
+      .tg .tg-oe15{background-color:#ffffff;border-color:#ffffff;text-align:left;vertical-align:top}
+      .tg .tg-ntt9{background-color:#ffffff;color:#ffffff;border-color:#ffffff;text-align:left;vertical-align:top}
+      .tg .tg-kaak{background-color:#ffffff;border-color:#ffffff;text-align:left;vertical-align:top}
+      .tg .tg-lwxs{background-color:#ffffff;color:#ffffff;border-color:#ffffff;text-align:left;vertical-align:top}
+      .tg .tg-bvjv{background-color:#000000;font-weight:bold;font-size:16px;color:#ffffff;border-color:#ffccc9;text-align:center;vertical-align:top}
+      .tg .tg-nu5p{background-color:#ffffff;color:#000000;border-color:#ffffff;text-align:left;vertical-align:top}
+      .tg .tg-47fj{background-color:#000000;font-weight:bold;font-size:16px;color:#ffffff;border-color:#000000;text-align:left;vertical-align:top}
+      .tg .tg-nqsu{font-weight:bold;font-size:16px;background-color:#000000;color:#ffffff;border-color:#000000;text-align:left;vertical-align:top}
+      .tg .tg-lxa8{background-color:#ffffff;color:#000000;border-color:#ffffff;text-align:left;vertical-align:top}
+      .tg .tg-luoa{font-weight:bold;font-size:16px;background-color:#000000;color:#ffffff;border-color:#ffccc9;text-align:center;vertical-align:top}
+      .tg .tg-dh2z{font-weight:bold;font-size:16px;background-color:#ffffff;color:#000000;border-color:#000000;text-align:right;vertical-align:top}
+      .tg .tg-k48h{background-color:#d3d3d3;font-weight:bold;font-size:16px;color:#000000;border-color:#000000;text-align:center;vertical-align:top}
+      .tg .tg-riqm{font-weight:bold;font-size:16px;background-color:#ffffff;color:#000000;border-color:#000000;text-align:center;vertical-align:top}
+      .tg .tg-zn4z{background-color:#ffffff;font-weight:bold;font-size:16px;color:#000000;border-color:#000000;text-align:left;vertical-align:top}
+      .tg .tg-31ao{font-weight:bold;font-size:16px;background-color:#ffffff;color:#000000;border-color:#000000;text-align:left;vertical-align:top}
+  
+    html {
+        position: relative;
+        min-height: 100%;
+        padding-bottom: 20px;
+        /* equal to footer height */
+      }
+    body {
+      min-height:100%; 
+      margin: 0;
+      padding: 0;
+      }
+  
+    footer {
+    
+      position:absolute;
+      bottom:0;
+      width:100%;
+      height:20px;    }
+       /* 
+            background:#ccc;
+  */
+    .page {
+        width: 21cm;
+        min-height: 32.7cm;
+          /*padding: 0.1cm; */
+        padding-bottom: 0px;
+        margin: 0 auto;
+        border: 0.51px black solid;
+        }
+      
+      .subpage {
+    
+          height: 297mm;
+      
+        }
+      
+      
+      @page {
+      
+            size: A4;
+            
+            margin: 0;
+        
+        }
+      
+      @media print {
+      
+            html, body {
+            
+            width: 210mm;
+            
+            height: 297mm;
+            
+            }
+            
+            .page {
+                    margin: 0;
+                    page-break-after: always;
+              }
+        }
+      
+      
+      
+      </style>
+</head>
+<body>
+    <!-- Material form login -->
+<div class="card">
+
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Sign in</strong>
+  </h5>
+
+  <!--Card content-->
+  <div class="card-body px-lg-5 pt-0">
+
+    <!-- Form -->
+    <form class="text-center" style="color: #757575;">
+
+      <!-- Email -->
+      <div class="md-form">
+        <input type="email" id="materialLoginFormEmail" class="form-control">
+        <label for="materialLoginFormEmail">E-mail</label>
+      </div>
+
+      <!-- Password -->
+      <div class="md-form">
+        <input type="password" id="materialLoginFormPassword" class="form-control">
+        <label for="materialLoginFormPassword">Password</label>
+      </div>
+
+      <div class="d-flex justify-content-around">
+        <div>
+          <!-- Remember me -->
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">
+            <label class="form-check-label" for="materialLoginFormRemember">Remember me</label>
+          </div>
+        </div>
+        <div>
+          <!-- Forgot password -->
+          <a href="">Forgot password?</a>
+        </div>
+      </div>
+
+      <!-- Sign in button -->
+      <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+
+      <!-- Register -->
+      <p>Not a member?
+        <a href="">Register</a>
+      </p>
+
+      <!-- Social login -->
+      <p>or sign in with:</p>
+      <a type="button" class="btn-floating btn-fb btn-sm">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a type="button" class="btn-floating btn-tw btn-sm">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a type="button" class="btn-floating btn-li btn-sm">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a type="button" class="btn-floating btn-git btn-sm">
+        <i class="fab fa-github"></i>
+      </a>
+
+    </form>
+    <!-- Form -->
+
+  </div>
+
+</div>
+<!-- Material form login -->
+  
+  <div class="page">
+  
+    <div class="subpage">
+      <br/>
+        <H1 align = "center"><u><b>스마트내과 일계표 </b></u></H1>
+    
+      <br/>
+      
+      
+      <table class="tg" style="undefined;table-layout: fixed; width: 90% ;margin:0 auto;">
+      <colgroup>
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+      </colgroup>
+        <tr>
+          <th class="tg-nqsu" colspan="4">1. 금일 내원환자</th>
+          <th class="tg-nu5p"></th>
+          <th class="tg-luoa">일계일자</th>
+          <th class="tg-dh2z">{{object.ntext}}</th>
+        </tr>
+        <tr>
+          <td class="tg-k48h">내원환자</td>
+          <td class="tg-k48h">공단검진</td>
+          <td class="tg-k48h">종함검진</td>
+          <td class="tg-k48h">예방접종</td>
+          <td class="tg-kaak"></td>
+          <td class="tg-bvjv">작성자</td>
+          <td class="tg-7jw8">{{object.name_m}}</td>
+        </tr>
+        <tr>
+          <td class="tg-dh2z">{{object.todayptno}}</td>
+          <td class="tg-dh2z">{{object.gongdan}}</td>
+          <td class="tg-dh2z">{{object.jongham}}</td>
+          <td class="tg-dh2z">{{object.vaccine}}</td>
+          <td class="tg-oe15"></td>
+          <td class="tg-oe15"></td>
+          <td class="tg-oe15"></td>
+        </tr>
+        <tr>
+          <td class="tg-kaak"></td>
+          <td class="tg-kaak"></td>
+          <td class="tg-kaak"></td>
+          <td class="tg-kaak"></td>
+          <td class="tg-kaak"></td>
+          <td class="tg-kaak"></td>
+          <td class="tg-kaak"></td>
+        </tr>
+        <tr>
+          <td class="tg-nqsu" colspan="7">2. 금일 수입현황</td>
+        </tr>
+        <tr>
+          <td class="tg-k48h">현금수입</td>
+          <td class="tg-k48h">카드수입</td>
+          <td class="tg-k48h">미수금</td>
+          <td class="tg-k48h">매출계</td>
+          <td class="tg-k48h">현금지출</td>
+          <td class="tg-k48h">현금잔액</td>
+          <td class="tg-k48h">현금시제</td>
+        </tr>
+        <tr>
+          <td class="tg-dh2z">{{object.cashincome}}</td>
+          <td class="tg-dh2z">{{object.creditincome}}</td>
+          <td class="tg-dh2z">{{object.misu}}</td>
+          <td class="tg-dh2z">{{object.totalincome}}</td>
+          <td class="tg-dh2z">{{object.jichulcash}}</td>
+          <td class="tg-dh2z">{{object.cashremain}}</td>
+          <td class="tg-dh2z">{{object.cashsije}}</td>
+        </tr>
+        <tr>
+          <td class="tg-lxa8"></td>
+          <td class="tg-lxa8"></td>
+          <td class="tg-lxa8"></td>
+          <td class="tg-lxa8"></td>
+          <td class="tg-lxa8"></td>
+          <td class="tg-lxa8"></td>
+          <td class="tg-lxa8"></td>
+        </tr>
+        <tr>
+          <td class="tg-nqsu" colspan="7">3. 금일 지출현황</td>
+        </tr>
+        <tr>
+          <td class="tg-k48h" colspan="2">지급구분</td>
+          <td class="tg-k48h" colspan="2">지출내용</td>
+          <td class="tg-k48h">금액</td>
+          <td class="tg-k48h" colspan="2">비고</td>
+        </tr>
+        <tr>
+          <td class="tg-riqm" colspan="2">{{object.jichulclass}}</td>
+          <td class="tg-riqm" colspan="2">{{object.jichulcontents}}</td>
+          <td class="tg-riqm">{{object.jichulmoney}}</td>
+          <td class="tg-riqm" colspan="2">{{object.bigo}}</td>
+        </tr>
+        <tr>
+          <td class="tg-riqm" colspan="2">{{object.jichulclass2}}</td>
+          <td class="tg-riqm" colspan="2">{{object.jichulcontents2}}</td>
+          <td class="tg-riqm">{{object.jichulmoney2}}</td>
+          <td class="tg-riqm" colspan="2">{{object.bigo2}}</td>
+        </tr>
+        <tr>
+          <td class="tg-riqm" colspan="2">{{object.jichulclass3}}</td>
+          <td class="tg-riqm" colspan="2">{{object.jichulcontents3}}</td>
+          <td class="tg-riqm">{{object.jichulmoney3}}</td>
+          <td class="tg-riqm" colspan="2">{{object.bigo3}}</td>
+        </tr>
+        <tr>
+          <td class="tg-riqm" colspan="2">{{object.jichulclass4}}</td>
+          <td class="tg-riqm" colspan="2">{{object.jichulcontents4}}</td>
+          <td class="tg-riqm">{{object.jichulmoney4}}</td>
+          <td class="tg-riqm" colspan="2">{{object.bigo4}}</td>
+        </tr>
+        <tr>
+          <td class="tg-riqm" colspan="2">{{object.jichulclass5}}</td>
+          <td class="tg-riqm" colspan="2">{{object.jichulcontents5}}</td>
+          <td class="tg-riqm">{{object.jichulmoney5}}</td>
+          <td class="tg-riqm" colspan="2">{{object.bigo5}}</td>
+        </tr>
+        <tr>
+          <td class="tg-lwxs" colspan="7"></td>
+        </tr>
+        <tr>
+          <td class="tg-nqsu" colspan="7">4. 건의 및 전달 사항</td>
+        </tr>
+        <tr>
+          <td class="tg-zn4z" colspan="7">{{object.guneu}}</td>
+        </tr>
+        <tr>
+          <td class="tg-31ao" colspan="7">{{object.guneu2}}</td>
+        </tr>
+        <tr>
+          <td class="tg-zn4z" colspan="7">{{object.guneu3}}</td>
+        </tr>
+        <tr>
+          <td class="tg-ntt9"></td>
+          <td class="tg-ntt9"></td>
+          <td class="tg-ntt9"></td>
+          <td class="tg-ntt9"></td>
+          <td class="tg-ntt9"></td>
+          <td class="tg-ntt9"></td>
+          <td class="tg-ntt9"></td>
+        </tr>
+        <tr>
+          <td class="tg-47fj" colspan="7">5. 직원 근태 사항</td>
+        </tr>
+        <tr>
+          <td class="tg-31ao" colspan="7">{{object.dutyonoff}}</td>
+        </tr>
+        <tr>
+          <td class="tg-31ao" colspan="7">{{object.dutyonoff2}}</td>
+        </tr>
+        <tr>
+          <td class="tg-31ao" colspan="7">{{object.dutyonoff3}}</td>
+        </tr>
+      </table>
+      <br>
+      <br>
+      <div align='center' >
+              <img src="{% static "images/스마트스티커.png" %}"   width=3% height=3% positon="fixed">
+              <lable style= "font-size:14px; font-weight:bold;">&nbsp;&nbsp;스마트내과</lable>
+          </div>
+ 
+    </div>
+        
+      
+      
+ </div>
+
+</body>
+{% endblock %}
+
+</html>

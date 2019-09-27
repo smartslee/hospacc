@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load humanize %}
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        스마트일계표
+    {% endblock %}
+
+   
+</head>
+<body>
+    
+
+<br/>
+<br/>
+<br/>
+
+
+
+{% block content %}
+
+<div style="overflow: auto; margin-top:50px">
+<table class="table" >
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">작성일</th>
+      <th scope="col">담당자</th>
+      <th scope="col">내원환자</th>
+      <th scope="col">공단검진</th>
+      <th scope="col">종합검진</th>
+      <th scope="col">예방접종</th>
+      <th scope="col">현금수입</th>
+      <th scope="col">카드수입</th>
+      <th scope="col">미수</th>
+      <th scope="col">금일매출계</th>
+      <th scope="col">금일현금지출</th>
+      <th scope="col">금일현금잔액</th>
+      <th scope="col">현금시제</th>
+      <th scope="col">지급구분</th>
+      <th scope="col">내용</th>
+      <th scope="col">금액</th>
+      <th scope="col">비고</th>
+      <th scope="col">지출계</th>
+      <th scope="col">건의</th>
+      <th scope="col">직원근태</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      {% for ci in lists %}
+    <tr>
+      <th scope="row">{{ci.ntext}}</th>
+      <td>{{ci.name_m}}</td>
+      <td>{{ci.todayptno}}</td>
+      <td>{{ci.gongdan}}</td>
+      <td>{{ci.jongham}}</td>
+      <td>{{ci.vaccine}}</td>
+      <td>{{ci.cashincome|intcomma}}</td>
+      <td>{{ci.creditincome|intcomma}}</td>
+      <td>{{ci.misu|intcomma}}</td>
+      <td>{{ci.sumincome|intcomma}}</td>
+      <td>{{ci.sum_jichul|intcomma}}</td>
+      <td>{{ci.sumdue|intcomma}}</td>
+      <td>{{ci.cashsije|intcomma}}</td>
+      <td>{{ci.jichulclass}}</td>
+      <td>{{ci.jichulcontents}}</td>
+      <td>{{ci.sum_jichul|intcomma}}</td>
+      <td>{{ci.bigo}}</td>
+      <td>{{ci.jichulsum}}</td>
+      <td>{{ci.guneu}}</td>
+      <td>{{ci.dutyonoff}}</td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+<hr color ='blue'>
+</div>
+
+<p></p>
+
+<!--
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-90e1{background-color:#ffccc9;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top; border-bottom:0.5px solid red;}
+
+
+
+</style> 
+<div style="width: 5000px; height: 500px; overflow: auto">
+<table class="tg">
+
+  <tr>
+    <th class="tg-90e1">작성일</th>
+    <th class="tg-90e1">작성자</th>
+    <th class="tg-90e1">내원환자</th>
+    <th class="tg-90e1">공단검진</th>
+    <th class="tg-90e1">예방접종</th>
+    <th class="tg-90e1">현금수입</th>
+    <th class="tg-90e1">카드수입</th>
+    <th class="tg-90e1">미수명</th>
+    <th class="tg-90e1">금일매출계</th>
+    <th class="tg-90e1">금일현금지출</th>
+    <th class="tg-90e1">금일현금잔액</th>
+    <th class="tg-90e1">현금시제</th>
+    <th class="tg-90e1">지급구분</th>
+    <th class="tg-90e1">지출내용</th>
+    <th class="tg-90e1">지출금액</th>
+    <th class="tg-90e1">비고</th>
+    <th class="tg-90e1">지출계</th>
+    <th class="tg-90e1">건의</th>
+    <th class="tg-90e1">직원근태</th>
+   
+  </tr>
+  <tbody> 
+  {% for ci in lists %}
+ 
+  <tr>
+      
+    <td class="tg-0pky"> {{ci.ntext}}</td>
+    <td class="tg-0pky">{{ci.name_m}}</td>
+    <td class="tg-0pky">{{ci.todayptno}}</td>
+    <td class="tg-0pky">{{ci.gongdan}}</td>
+    <td class="tg-0pky">{{ci.jongham}}</td>
+    <td class="tg-0pky">{{ci.vaccine}}</td>
+    <td class="tg-0pky">{{ci.cashincome}}</td>
+    <td class="tg-0pky">{{ci.creditincome}}</td>
+    <td class="tg-0pky">{{ci.misu}}</td>
+    <td class="tg-0pky">{{ci.totalincome}}</td>
+    <td class="tg-0pky">{{ci.jichulcash}}</td>
+    <td class="tg-0pky">{{ci.cashremain}}</td>
+    <td class="tg-0pky">{{ci.cashsije}}</td>
+    <td class="tg-0pky">{{ci.jichulclass}}</td>
+    <td class="tg-0pky">{{ci.jichulcontents}}</td>
+    <td class="tg-0pky">{{ci.jichulmoney}}</td>
+    <td class="tg-0pky">{{ci.bigo}}</td>
+    <td class="tg-0pky">{{ci.jichulsum}}</td>
+    <td class="tg-0pky">{{ci.guneu}}</td>
+    <td class="tg-0pky">{{ci.dutyonoff}}</td>
+    
+  </tr>
+  {% endfor %}
+  </tbody>
+  
+ 
+</table>
+-->
+</div>
+
+ <div style="positon:fixed; bottom :5px;right:5px;">
+    <a href ="#header"> 
+    <img src="{% static "images/스마트스티커.png" %}" align="right" width=3% height=3% positon="fixed">
+    </a> 
+</div>
+
+<p>
+
+</p>
+ 
+ {% endblock %}
+
+ </body>

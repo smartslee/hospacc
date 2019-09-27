@@ -1,0 +1,279 @@
+{% load addcss %}
+{% load placeholder %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+  
+  <title>입력</title>
+</head>
+<style type="text/css">
+
+.form-style-10{
+	width:450px;
+	padding:30px;
+	margin:40px auto;
+	background: #FFF;
+	border-radius: 10px;
+	-webkit-border-radius:10px;
+	-moz-border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+}
+.form-style-10 .inner-wrap{
+	padding: 30px;
+	background: #F8F8F8;
+	border-radius: 6px;
+	margin-bottom: 15px;
+}
+.bg {
+  background-image: url("/static/images/smart1.jpg")  ;
+  
+
+  color: #0a0a0b;
+  overflow: auto;
+  border-radius: 1%;
+  z-index: 1;
+}
+
+.bg label{
+    font-family:arial; 
+    font-weight:bold;
+    font-color:black;
+    z-index: 5;
+}
+.blend {
+  mix-blend-mode: hard-light;
+  color: white;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2vw;
+}
+.boundouter {
+  border-radius: 10px;
+  max-width:1100px;
+  width:1000%;
+  margin: 2% auto;
+  padding: 2px;
+  overflow: auto;
+  opacity: 0.8;
+  background-color:rgba(100,0,0,0.5);
+  z-index:5;
+  
+}
+label {
+  color: #fff;
+  text-decoration: none;
+}
+table {
+    width:100%;
+    overflow: auto;
+    background-color:rgba(255,100,0,0.5);
+    padding:3px;
+
+}
+thead tr {
+    background-color: #0d47a1;
+    color: #ffffff;
+}
+</style>
+<body >
+ <form >
+ 
+<div class="bg">
+ <div class="boundouter"> 
+  
+  <div class ="container">
+    <div class="form-row" style = "width: 1000px; margin-left:50px">
+      <div class="col-md-2 mb-3"> 
+        <label class="tg-nqsu" colspan="4">1. 금일 내원환자</label>
+      </div> 
+      <div class="col-md-2 mb-3">
+        <label class="shadow-sm p-3 mb-5 bg-white rounded">일계일자</label>
+      </div>      
+<!--      <div class="">      
+        {{form.ntext|addcss:"form-control is-valid"}}
+      </div>            
+            
+            <th> 금일 내원환자</th>
+                                <th> 금일 수입현황</th>
+                                <th> 금일 지출현황</th>
+                                <th> 건의사항 및 전달사항</th>
+                                <th> 금일 지출현황</th>
+                                <th> 건의사항 및 전달사항</th>  
+                                
+                                <label for ="" style="">작 성 일 </label>
+                                    <br/>
+                                    {{form.ntext|placeholder:"'20190101'양식으로 입력"| addcss:"form-control is-valid"}}
+                                 <label for ="" style="font-family:arial; font-weight:bold">작   성   자</label>
+                                    <br/>{{form.name_m|addcss:"form-control is-valid"}}
+        -->
+    </div> 
+  </div>
+       
+     <!-- 
+    <table class=""  style = "width: 1000px; margin-left:50px">
+     <thead>
+        <tr class="blend">
+          <th> 내원환자수 </th>
+          <th> 공단검진수</th>
+          <th> 종합검진</th>
+          <th> 예 방   접 종</th>
+                                
+        </tr>
+                            
+     </thead>
+                        
+        <tr>
+          <td>{{form.todayptno|addcss:"form-control is-valid"}}</td>
+          <td>{{form.gongdan|addcss:"form-control is-valid"}}</td>
+          <td>{{form.jongham|addcss:"form-control is-valid"}}</td>
+          <td>{{form.vaccine|addcss:"form-control is-valid"}}</td>
+        </tr>    
+   </table>  
+<br/>
+
+   <table style = "width: 1000px; margin-left:50px">            
+     <thead>
+      <tr class="blend">
+       <th>현금수입</th>
+       <th>카 드   수 입</th>
+       <th>미수</th>
+       <th>금 일   매 출 계</th>   
+       <th>금일 현금 지출</th>
+       <th>현 금 시 제</th>
+      </tr>
+     </thead>
+     
+      <tr class="blend">
+        <td>{{form.cashincome|addcss:"form-control is-valid"}}</td>
+        <td> {{form.creditincome|addcss:"form-control is-valid"}}</td>    
+        <td>{{form.totalincome|addcss:"form-control is-valid"}}</td>
+        <td>{{form.jichulcash|addcss:"form-control is-valid"}}</td>
+        <td>{{form.cashremain|addcss:"form-control is-valid"}}</td>
+        <td>{{form.cashsije|addcss:"form-control is-valid"}}</td>
+      </tr>
+                               
+    </table> 
+    <br/>
+ 
+    <table style = "width: 1000px; margin-left:50px"> 
+     <thead>
+      <tr class="blend">
+       <th>지 급 구 분</th>
+       <th>지 출 내  용</th>
+       <th>지 출 금  액</th>
+       <th>비  고</th>
+      </tr>
+     </thead>
+     <tr class="blend">
+        <td>{{form.jichulclass|addcss:"form-control is-valid"}}</td>
+        <td>{{form.jichulcontents|addcss:"form-control is-valid"}}</td>
+        <td>{{form.jichulmoney|addcss:"form-control is-valid"}}</td>
+        <td>{{form.bigo|addcss:"form-control is-valid"}}</td>
+     </tr>   
+     <tr class="blend">
+        <td>{{form.jichulclass2|addcss:"form-control is-valid"}}</td>
+        <td>{{form.jichulcontents2|addcss:"form-control is-valid"}}</td>
+        <td>{{form.jichulmoney2|addcss:"form-control is-valid"}}</td>
+        <td>{{form.bigo2|addcss:"form-control is-valid"}}</td>
+     </tr>
+     <tr class="blend">
+        <td>{{form.jichulclass3|addcss:"form-control is-valid"}}</td>
+        <td>{{form.jichulcontents3|addcss:"form-control is-valid"}}</td>
+        <td>{{form.jichulmoney3|addcss:"form-control is-valid"}}</td>
+        <td>{{form.bigo3|addcss:"form-control is-valid"}}</td>
+     </tr> 
+     <tr class="blend">
+        <td>{{form.jichulclass4|addcss:"form-control is-valid"}}</td>
+        <td>{{form.jichulcontents4|addcss:"form-control is-valid"}}</td>
+        <td>{{form.jichulmoney4|addcss:"form-control is-valid"}}</td>
+        <td>{{form.bigo4|addcss:"form-control is-valid"}}</td>
+     </tr> 
+     <tr class="blend">
+        <td>{{form.jichulclass5|addcss:"form-control is-valid"}}</td>
+        <td>{{form.jichulcontents5|addcss:"form-control is-valid"}}</td>
+        <td>{{form.jichulmoney5|addcss:"form-control is-valid"}}</td>
+        <td>{{form.bigo5|addcss:"form-control is-valid"}}</td>
+     </tr> 
+        
+        
+    </table>
+    
+   
+    <br/>
+    <table style = "width: 1000px; margin-left:50px"> 
+     <thead>
+      <tr class="blend">
+       <th>건의</th>
+       
+      </tr>
+     </thead>
+     <tr>
+        <td>{{form.guneu|addcss:"form-control is-valid"}}</td>
+     </tr>   
+     <tr>
+        <td>{{form.guneu2|addcss:"form-control is-valid"}}</td>
+     </tr>
+     <tr>
+        <td>{{form.guneu3|addcss:"form-control is-valid"}}</td>
+     </tr> 
+     <tr>
+        <td>{{form.guneu4|addcss:"form-control is-valid"}}</td>
+     </tr> 
+     <tr>
+        <td>{{form.guneu5|addcss:"form-control is-valid"}}</td>
+     </tr> 
+        
+    </table>
+    
+    
+    <table style = "width: 1000px; margin-left:50px"> 
+    <thead>
+      <tr class="blend">
+       
+       <th>직 원 근 태</th>
+      </tr>
+     </thead>
+     <tr>
+        <td>{{form.dutyonoff|addcss:"form-control is-valid"}}</td>
+     </tr>   
+     <tr>
+        <td>{{form.dutyonoff2|addcss:"form-control is-valid"}}</td>
+     </tr>
+     <tr>
+        <td>{{form.dutyonoff3|addcss:"form-control is-valid"}}</td>
+     </tr> 
+     <tr>
+        <td>{{form.dutyonoff4|addcss:"form-control is-valid"}}</td>
+     </tr> 
+     <tr>
+        <td>{{form.dutyonoff5|addcss:"form-control is-valid"}}}</td>
+     </tr> 
+        
+    
+    </table>
+    <table style = "width: 1000px; margin-left:50px"> 
+    
+    
+    </table>
+    
+     
+    </label>
+ <label for ="" style="font-family:arial; font-weight:bold">지 출 계</label>
+<br/>{{form.jichulsum|addcss:"form-control is-valid"}}   
+
+   -->
+   
+    <label for ="" style="font-family:arial; font-weight:bold; color:blue">수정일</label>
+                                    {{form.created_date}}
+
+    </div>
+ </div>
+ </form>    
+</body> 

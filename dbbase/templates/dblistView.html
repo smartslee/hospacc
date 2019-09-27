@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load humanize %}
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        스마트일계표
+    {% endblock %}
+
+   
+</head>
+<body>
+    
+
+<br/>
+<br/>
+<br/>
+
+{% block content %}
+
+<div style="overflow: auto; margin-top:50px">
+  <table class="table" border="1"  style="table-layout: auto; width: 70% ;margin:0 auto;text-align: center;">
+    <colgroup>
+      
+    </colgroup>
+    
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">작성자</th>
+        <th scope="col">작성일</th>
+        <th scope="col">수정</th>
+        <th scope="col">삭제</th>
+        <th scope="col">출력</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ci in hdb_list %}
+      <tr>
+        <th scope="row">{{ci.name_m}}</th>
+        <th scope="row"><a href="{% url 'detail' ci.pk %}" >{{ci.ntext}}</a></th>
+        <th scope="row"><a href="{% url 'update' ci.pk   %}">수정화면</a></th>
+        <th scope="row"><a href="{% url 'delete' ci.pk   %}">삭제</a></th>
+        <th scope="row"><a href="{% url 'print' ci.pk   %}">출력화면으로</a></th>
+      </tr>
+      {% endfor %}
+    
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+
+<ul>
+  <ul class = "text-center" style=" text-align:center; " >
+      {% block pagination %}
+      {% if is_paginated %}
+    <div class="pagination justify-content-center" style="positon:relative; left: 100 px; top: 10 px;">
+      <li>
+        <span class="page-links">
+              {% if page_obj.has_previous %}
+                  <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">  previous  </a>
+              {% endif %}
+        </span>
+      </li>
+      <li>       
+        <span class="page-current">
+              <p>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</p>
+        </span>
+      </li>  
+      <li>
+        <span>
+              {% if page_obj.has_next %}
+                <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+              {% endif %}
+        </span>
+      </li>  
+    </ul>
+        
+      {% endif %}
+       
+      {% endblock %}
+  </div>
+</ul>  
+  
+  <div style="positon:fixed; bottom :5px;right:5px;">
+    <a href ="#header"> 
+       <img src="{% static "images/스마트스티커.png" %}" align="right" width=6% height=6% positon="fixed">
+    </a> 
+  </div>
+  
+
+
+{% endblock %}
+ </body>

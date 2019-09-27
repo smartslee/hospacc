@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load humanize %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  {% block title %}
+        스마트일계표출력
+    {% endblock %}
+    
+ 
+
+{% block content %}
+
+<br/>
+
+<br/>
+
+
+<p class="save btn btn-success" style =" margin-left:100px">일계일자</p> 
+<span style="font-family:Arial;font-size:24px;padding:10px 5px;font-weight: bold; "> {{object.ntext}}</span> 
+<span> <p class="save btn btn-success" style =" margin-left:100px">작성자</p></span>
+<span style ="font-family:Arial;font-size:24px;padding:10px 5px;font-weight: bold;"> {{object.name_m}}</span> 
+
+<style type="text/css">
+
+
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+.tg .tg-oe15{background-color:#ffffff;border-color:#ffffff;text-align:left;vertical-align:top}
+.tg .tg-ntt9{background-color:#ffffff;color:#ffffff;border-color:#ffffff;text-align:left;vertical-align:top}
+.tg .tg-kaak{background-color:#ffffff;border-color:#ffffff;text-align:left;vertical-align:top}
+.tg .tg-lwxs{background-color:#ffffff;color:#ffffff;border-color:#ffffff;text-align:left;vertical-align:top}
+.tg .tg-nu5p{background-color:#ffffff;color:#000000;border-color:#ffffff;text-align:left;vertical-align:top}
+.tg .tg-47fj{background-color:#000000;font-weight:bold;font-size:16px;color:#ffffff;border-color:#000000;text-align:left;vertical-align:top}
+.tg .tg-nqsu{font-weight:bold;font-size:16px;background-color:#000000;color:#ffffff;border-color:#000000;text-align:left;vertical-align:top}
+.tg .tg-lxa8{background-color:#ffffff;color:#000000;border-color:#ffffff;text-align:left;vertical-align:top}
+.tg .tg-k48h{background-color:#ffffff;font-weight:bold;font-size:14px;color:#000000;border-color:#000000;text-align:center;vertical-align:top}
+.tg .tg-dh2z{font-weight:bold;font-size:14px;background-color:#ffffff;color:#000000;border-color:#000000;text-align:right;vertical-align:top}
+.tg .tg-riqm{font-weight:bold;font-size:14px;background-color:#ffffff;color:#000000;border-color:#000000;text-align:center;vertical-align:top}
+.tg .tg-zn4z{background-color:#ffffff;font-weight:bold;font-size:14px;color:#000000;border-color:#000000;text-align:left;vertical-align:top}
+.tg .tg-31ao{font-weight:bold;font-size:14px;background-color:#ffffff;color:#000000;border-color:#000000;text-align:left;vertical-align:top}
+</style>
+
+<table class="tg" style="undefined;table-layout: fixed; width: 80% ;margin:0 auto;">
+<colgroup>
+<col style="width: 93px">
+<col style="width: 99px">
+<col style="width: 105px">
+<col style="width: 95px">
+<col style="width: 99px">
+<col style="width: 100px">
+<col style="width: 85px">
+</colgroup>
+  <tr>
+    <th class="tg-nqsu" colspan="4">1. 금일 내원환자</th>
+    <th class="tg-nu5p"></th>
+    <th class="tg-nu5p"></th>
+    <th class="tg-oe15"></th>
+  </tr>
+  <tr>
+    <td class="tg-k48h">내원환자</td>
+    <td class="tg-k48h">공단검진</td>
+    <td class="tg-k48h">종함검진</td>
+    <td class="tg-k48h">예방접종</td>
+    <td class="tg-kaak"></td>
+    <td class="tg-kaak"></td>
+    <td class="tg-kaak"></td>
+  </tr>
+  <tr>
+    <td class="tg-dh2z">{{object.todayptno}}</td>
+    <td class="tg-dh2z">{{object.gongdan}}</td>
+    <td class="tg-dh2z">{{object.jongham}}</td>
+    <td class="tg-dh2z">{{object.vaccine}}</td>
+    <td class="tg-oe15"></td>
+    <td class="tg-oe15"></td>
+    <td class="tg-oe15"></td>
+  </tr>
+  <tr>
+    <td class="tg-kaak"></td>
+    <td class="tg-kaak"></td>
+    <td class="tg-kaak"></td>
+    <td class="tg-kaak"></td>
+    <td class="tg-kaak"></td>
+    <td class="tg-kaak"></td>
+    <td class="tg-kaak"></td>
+  </tr>
+  <tr>
+    <td class="tg-nqsu" colspan="7">2. 금일 수입현황</td>
+  </tr>
+  <tr>
+    <td class="tg-k48h">현금수입</td>
+    <td class="tg-k48h">카드수입</td>
+    <td class="tg-k48h">미수금</td>
+    <td class="tg-k48h">매출계</td>
+    <td class="tg-k48h">현금지출</td>
+    <td class="tg-k48h">현금잔액</td>
+    <td class="tg-k48h">현금시제</td>
+  </tr>
+  <tr>
+    <td class="tg-dh2z">{{object.cashincome|intcomma}}</td>
+    <td class="tg-dh2z">{{object.creditincome|intcomma}}</td>
+    <td class="tg-dh2z">{{object.misu|intcomma}}</td>
+    <td class="tg-dh2z">{{object.sumincome|intcomma}}</td>
+    <td class="tg-dh2z">{{object.sum_jichul|intcomma}}</td>
+    <td class="tg-dh2z">{{object.sumdue|intcomma}}</td>
+    <td class="tg-dh2z">{{object.cashsije|intcomma}}</td>
+  </tr>
+  <tr>
+    <td class="tg-lxa8"></td>
+    <td class="tg-lxa8"></td>
+    <td class="tg-lxa8"></td>
+    <td class="tg-lxa8"></td>
+    <td class="tg-lxa8"></td>
+    <td class="tg-lxa8"></td>
+    <td class="tg-lxa8"></td>
+  </tr>
+  <tr>
+    <td class="tg-nqsu" colspan="5">3. 금일 지출현황</td>
+    <td class="tg-nqsu" >지 출 계  :</td>
+    <td class="tg-nqsu" >{{object.sum_jichul|default_if_none:"0"|intcomma}}</td>
+  </tr>
+  <tr>
+    <td class="tg-k48h" colspan="2">지급구분</td>
+    <td class="tg-k48h" colspan="2">지출내용</td>
+    <td class="tg-k48h">지출금액</td>
+    <td class="tg-k48h" colspan="2">비고</td>
+  </tr>
+  <tr>
+    <td class="tg-riqm" colspan="2">{{object.jichulclass|default_if_none:""}}</td>
+    <td class="tg-riqm" colspan="2">{{object.jichulcontents|default_if_none:""}}</td>
+    <td class="tg-riqm">{{object.jichulmoney|default_if_none:""|intcomma}}</td>
+    <td class="tg-riqm" colspan="2">{{object.bigo|default_if_none:""}}</td>
+  </tr>
+  <tr>
+    <td class="tg-k48h" colspan="2">{{object.jichulclass2|default_if_none:""}}</td>
+    <td class="tg-k48h" colspan="2">{{object.jichulcontents2|default_if_none:""}}</td>
+    <td class="tg-k48h">{{object.jichulmoney2|default_if_none:""|intcomma}}</td>
+    <td class="tg-k48h" colspan="2">{{object.bigo2|default_if_none:""}}</td>
+  </tr>
+  <tr>
+    <td class="tg-riqm" colspan="2">{{object.jichulclass3|default_if_none:""}}</td>
+    <td class="tg-riqm" colspan="2">{{object.jichulcontents3|default_if_none:""}}</td>
+    <td class="tg-riqm">{{object.jichulmoney3|default_if_none:""|intcomma}}</td>
+    <td class="tg-riqm" colspan="2">{{object.bigo3|default_if_none:""}}</td>
+  </tr>
+  <tr>
+    <td class="tg-riqm" colspan="2">{{object.jichulclass4|default_if_none:""}}</td>
+    <td class="tg-riqm" colspan="2">{{object.jichulcontents4|default_if_none:""}}</td>
+    <td class="tg-riqm">{{object.jichulmoney4|default_if_none:""|intcomma}}</td>
+    <td class="tg-riqm" colspan="2">{{object.bigo4|default_if_none:""}}</td>
+  </tr>
+  <tr>
+    <td class="tg-riqm" colspan="2">{{object.jichulclass5|default_if_none:""}}</td>
+    <td class="tg-riqm" colspan="2">{{object.jichulcontents5|default_if_none:""}}</td>
+    <td class="tg-riqm">{{object.jichulmoney5|default_if_none:""|intcomma}}</td>
+    <td class="tg-riqm" colspan="2">{{object.bigo5|default_if_none:""}}</td>
+  </tr>
+  <tr>
+    <td class="tg-lwxs" colspan="7"></td>
+  </tr>
+  <tr>
+    <td class="tg-nqsu" colspan="7">4. 건의 및 전달 사항</td>
+  </tr>
+  <tr>
+    <td class="tg-zn4z" colspan="7">{{object.guneu|default_if_none:""}}</td>
+  </tr>
+  <tr>
+    <td class="tg-zn4z" colspan="7">{{object.guneu2|default_if_none:""}}</td>
+  </tr>
+  <tr>
+    <td class="tg-zn4z" colspan="7">{{object.guneu3|default_if_none:""}}</td>
+  </tr>
+  <tr>
+    <td class="tg-zn4z" colspan="7">{{object.guneu4|default_if_none:""}}</td>
+  </tr>
+  <tr>
+    <td class="tg-zn4z" colspan="7">{{object.guneu5|default_if_none:""}}</td>
+  </tr>
+  <tr>
+    <td class="tg-ntt9"></td>
+    <td class="tg-ntt9"></td>
+    <td class="tg-ntt9"></td>
+    <td class="tg-ntt9"></td>
+    <td class="tg-ntt9"></td>
+    <td class="tg-ntt9"></td>
+    <td class="tg-ntt9"></td>
+  </tr>
+  <tr>
+    <td class="tg-47fj" colspan="7">5. 직원 근태 사항</td>
+  </tr>
+  <tr>
+    <td class="tg-31ao" colspan="7">{{object.dutyonoff|default_if_none:""}}</td>
+  </tr>
+  <tr>
+    <td class="tg-31ao" colspan="7">{{object.dutyonoff2|default_if_none:""}}</td>
+  </tr>
+  <tr>
+    <td class="tg-31ao" colspan="7">{{object.dutyonoff3|default_if_none:""}}</td>
+  </tr>
+  <tr>
+    <td class="tg-31ao" colspan="7">{{object.dutyonoff4|default_if_none:""}}</td>
+  </tr>
+  <tr>
+    <td class="tg-31ao" colspan="7">{{object.dutyonoff5|default_if_none:""}}</td>
+  </tr>
+</table>
+
+<br/>
+  <p>
+    <a href="{% url 'update' pk=object.pk %}"  class="save btn btn-primary" style =" margin-left:600px">수정화면으로</a>
+  <span> 
+    <a href="{% url 'print' pk=object.pk %}"  class="save btn btn-warning" >
+      인쇄화면으로</a>
+    <a href="{% url 'delete' pk=object.pk %}"  class="save btn btn-danger" >
+      삭제할래요?</a>
+  </p>
+</span>
+
+ <div style="positon:fixed; bottom :5px;right:5px;">
+    <a href ="#header"> 
+    <img src="{% static "images/스마트스티커.png" %}" align="right" width=6% height=6% positon="fixed">
+    </a> 
+</div>
+
+<p>
+
+   
+   {% endblock %}
